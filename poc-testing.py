@@ -1,6 +1,7 @@
 # imports
 import pandas as pd 
 from py2neo import Graph
+import spacy
 
 # auth - references the service header, not the network name or localhost
 graph = Graph("bolt://neo4j:7687", auth=('neo4j', 'neo'))

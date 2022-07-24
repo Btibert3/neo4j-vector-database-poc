@@ -4,4 +4,6 @@ scikit-learn
 seaborn
 requests
 ipython
-
+spacy
+fastapi
+uvicorn[standard]
