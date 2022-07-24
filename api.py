@@ -21,10 +21,10 @@ def reco(command: Command):
     vec = doc.vector.tolist()
     cypher = f"""
     WITH {vec} as vector
-    MATCH (c:Command)-[:HAS_VECTOR]->(e:Embedding)
-    WITH vector, c, gds.similarity.cosine(vector, e.vector) as sim
+    MATCH (i:Intent)<--(c:Command)-[:HAS_VECTOR]->(e:Embedding)
+    WITH vector, c, i, gds.similarity.cosine(vector, e.vector) as sim
     where sim > 0
-    RETURN c.text, sim
+    RETURN c.text, i.intent, sim
     ORDER BY sim desc
     LIMIT 5
     """
