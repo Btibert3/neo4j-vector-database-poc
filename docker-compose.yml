@@ -6,9 +6,9 @@ services:
     image: neo4j:4.4.9-enterprise
     container_name: "vector-db"
     volumes:
-      - ./plugins:/plugins
-      - ./data:/data
-      - ./import:/var/lib/neo4j/import
+      - ./neo4j/plugins:/plugins
+      - ./neo4j/data:/data
+      - ./neo4j/import:/var/lib/neo4j/import
     ports:
       - "7474:7474"
       - "7687:7687"
@@ -26,11 +26,20 @@ services:
       - neo_net
 
   python:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    container_name: "python-env"
+    # image was previously built with docker build -t pydev .
+    # NOTE:  it is also possible to build the image with `build: .` instead of `image:` like below
+    build: .
+    # to have the shell open (e.g. --it in docker run)
+    # https://stackoverflow.com/a/39150040
+    stdin_open: true
+    tty: true
+    # map the project repo to the working directory created by the image
+    volumes:
+      - .:/brock/
     networks:
       - neo_net
 
+
 networks:
-  neo_net:   
+  neo_net:

@@ -3,4 +3,5 @@ py2neo
 scikit-learn
 seaborn
 requests
+ipython
 
