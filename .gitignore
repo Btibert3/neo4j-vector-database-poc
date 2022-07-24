@@ -2,3 +2,4 @@ data/
 plugins/
 import/
 neo4j/
+__pycache__
