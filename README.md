@@ -14,7 +14,7 @@ To frame this proof of concept, consider an application that needs to "predict" 
 
 Below is an example of this simple data model:
 
-![https://snipboard.io/RHx0qz.jpg]
+![](https://snipboard.io/RHx0qz.jpg)
 
 Other applications include:
 
