@@ -22,4 +22,15 @@ services:
       # - NEO4J_dbms_memory_heap_max__size=8G
       # !!! GDS plugin was manually downloaded (2.1.6) and added to plugins = https://neo4j.com/download-center/
       - NEO4JLABS_PLUGINS=["apoc"]
+    networks:
+      - neo_net
 
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - neo_net
+
+networks:
+  neo_net:   

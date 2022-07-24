@@ -1,0 +1,6 @@
+graphdatascience
+py2neo
+scikit-learn
+seaborn
+requests
+
